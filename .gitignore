@@ -1,0 +1,4 @@
+﻿# Ignore local backup and system files
+original_homepage.html
+.DS_Store
+Thumbs.db
