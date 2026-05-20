@@ -21,10 +21,10 @@
     
     <title>Cetsy | Products, Services &amp;amp; Digital Downloads from Across the Globe</title>
     <link rel="canonical" href="https://cetsy.co">
-                        <link rel="alternate" hreflang="en" href="https://cetsy.co?currency=USD">
-                                <link rel="alternate" hreflang="sw" href="https://cetsy.co/sw?currency=USD">
+                        <link rel="alternate" hreflang="en" href="https://cetsy.co">
+                                <link rel="alternate" hreflang="sw" href="https://cetsy.co/sw">
                             <meta property="og:locale:alternate" content="sw_KE">
-                            <link rel="alternate" hreflang="x-default" href="https://cetsy.co?currency=USD">
+                            <link rel="alternate" hreflang="x-default" href="https://cetsy.co">
     
             <meta property="og:title" content="Cetsy | Products, Services &amp;amp; Digital Downloads from Across the Globe">
         <meta property="og:description" content="Discover products, services, and digital downloads from sellers across the globe on Cetsy.">
@@ -557,14 +557,18 @@
                                 <p class="text-xs text-slate-500">Choose your preferred interface language.</p>
                             </div>
                             <div class="p-2">
-                                                                    <a href="https://cetsy.co/set-locale/en?redirect=https%3A%2F%2Fcetsy.co%3Fcurrency%3DUSD" class="flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium bg-emerald-50 text-emerald-700">
+                                                                    <a href="https://cetsy.co/set-locale/en?redirect=https%3A%2F%2Fcetsy.co" class="flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium bg-emerald-50 text-emerald-700">
                                         <span>English</span>
                                                                                     <i class="fas fa-check text-xs"></i>
                                                                             </a>
-                                                                    <a href="https://cetsy.co/set-locale/sw?redirect=https%3A%2F%2Fcetsy.co%2Fsw%3Fcurrency%3DUSD" class="flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
+                                                                    <a href="https://cetsy.co/set-locale/sw?redirect=https%3A%2F%2Fcetsy.co%2Fsw" class="flex items-center justify-between rounded-xl px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50">
                                         <span>Kiswahili</span>
                                                                             </a>
-                                                            </div>
+                                <div class="mt-4 rounded-xl border border-slate-200 bg-white p-3">
+                                    <div class="text-sm font-semibold text-slate-900">Currency</div>
+                                    <select data-currency-selector class="mt-2 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700"></select>
+                                </div>
+                            </div>
                         </div>
                     </div>
                                                                         <a href="https://cetsy.co/login" class="rounded-xl border border-slate-200 px-3 py-2 text-sm font-semibold text-slate-700 hover:border-slate-300">Login</a>
@@ -2099,10 +2103,10 @@
                 <div class="rounded-xl border border-slate-200 p-3">
                     <div class="mb-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">Language</div>
                     <div class="grid grid-cols-2 gap-2">
-                                                    <a href="https://cetsy.co/set-locale/en?redirect=https%3A%2F%2Fcetsy.co%3Fcurrency%3DUSD" @click="mobileDrawerOpen = false" class="rounded-lg border px-3 py-2 text-sm font-semibold border-emerald-300 bg-emerald-50 text-emerald-700">
+                                                    <a href="https://cetsy.co/set-locale/en?redirect=https%3A%2F%2Fcetsy.co" @click="mobileDrawerOpen = false" class="rounded-lg border px-3 py-2 text-sm font-semibold border-emerald-300 bg-emerald-50 text-emerald-700">
                                 English
                             </a>
-                                                    <a href="https://cetsy.co/set-locale/sw?redirect=https%3A%2F%2Fcetsy.co%2Fsw%3Fcurrency%3DUSD" @click="mobileDrawerOpen = false" class="rounded-lg border px-3 py-2 text-sm font-semibold border-slate-200 text-slate-700">
+                                                    <a href="https://cetsy.co/set-locale/sw?redirect=https%3A%2F%2Fcetsy.co%2Fsw" @click="mobileDrawerOpen = false" class="rounded-lg border px-3 py-2 text-sm font-semibold border-slate-200 text-slate-700">
                                 Kiswahili
                             </a>
                                             </div>
@@ -6483,6 +6487,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initListingRotators();
 });
 </script>
+<script src="js/currency.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4099e0c415c242bcbb7079f044653277","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
