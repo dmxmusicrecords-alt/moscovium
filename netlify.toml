@@ -1,0 +1,11 @@
+[build]
+  publish = "."
+  command = ""
+
+# Use Netlify Site settings to add real secret values.
+# Do not commit secret keys to GitHub.
+
+[build.environment]
+  # Example environment variable names. Set the values in Netlify Dashboard instead.
+  # API_KEY = "set-in-Netlify-dashboard"
+  # API_SECRET = "set-in-Netlify-dashboard"
