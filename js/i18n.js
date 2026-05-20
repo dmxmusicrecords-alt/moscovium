@@ -1,6 +1,7 @@
 (function () {
-    const supported = ['en', 'sw'];
+    const supported = ['en', 'sw', 'fr'];
     const defaultLang = 'en';
+    let translations = {};
 
     function getUrlLang() {
         try {
@@ -68,14 +69,44 @@
 
         const detected = await detectLang();
         selector.value = detected;
-        applyLang(detected);
+        await applyLang(detected);
 
         selector.addEventListener('change', function () {
             const v = selector.value;
             if (!supported.includes(v)) return;
-            applyLang(v);
-            // reload page so server can pick up `lang` param if applicable
-            window.location.reload();
+            applyLang(v).then(() => {
+                // reload page so server can pick up `lang` param if applicable
+                window.location.reload();
+            });
+        });
+    }
+
+    async function loadTranslations(lang) {
+        try {
+            const resp = await fetch('/i18n/' + lang + '.json');
+            if (!resp.ok) return {};
+            return await resp.json();
+        } catch (e) {
+            return {};
+        }
+    }
+
+    function applyTranslations(obj) {
+        // replace innerText or placeholder for elements with data-i18n-key
+        document.querySelectorAll('[data-i18n-key]').forEach((el) => {
+            const key = el.getAttribute('data-i18n-key');
+            if (!key) return;
+            const value = obj[key];
+            if (value === undefined) return;
+            if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                if (el.hasAttribute('placeholder')) el.setAttribute('placeholder', value);
+            } else if (el.getAttribute('data-i18n-attr')) {
+                // allows mapping to specific attribute, e.g., data-i18n-attr="title"
+                const attr = el.getAttribute('data-i18n-attr');
+                el.setAttribute(attr, value);
+            } else {
+                el.textContent = value;
+            }
         });
     }
 
@@ -85,4 +116,12 @@
     } else {
         init();
     }
+
+    // Enhance applyLang to load and apply translations
+    const _applyLang = applyLang;
+    applyLang = async function (lang) {
+        _applyLang(lang);
+        translations = await loadTranslations(lang);
+        applyTranslations(translations);
+    };
 })();
