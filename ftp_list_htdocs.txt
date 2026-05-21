@@ -1,0 +1,6 @@
+open ftpupload.net 21
+user if0_41938111
+Genius254
+cd htdocs
+ls
+quit
