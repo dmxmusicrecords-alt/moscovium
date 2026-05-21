@@ -26,6 +26,22 @@
         setLangParam(lang);
     }
 
+    function getBrowserLanguages() {
+        const langs = [];
+
+        if (navigator.languages && navigator.languages.length) {
+            langs.push(...navigator.languages);
+        }
+
+        if (navigator.language) langs.push(navigator.language);
+        if (navigator.userLanguage) langs.push(navigator.userLanguage);
+
+        return langs
+            .filter(Boolean)
+            .map((locale) => locale.trim().toLowerCase())
+            .filter((value, index, self) => self.indexOf(value) === index);
+    }
+
     function mapCountryToLang(countryCode) {
         // Simple mapping; extend as needed
         const map = {
@@ -33,7 +49,8 @@
             TZ: 'sw', // Tanzania
             UG: 'sw', // Uganda (some)
             US: 'en',
-            GB: 'en'
+            GB: 'en',
+            FR: 'fr'
         };
         return map[countryCode] || null;
     }
@@ -45,8 +62,17 @@
         const stored = localStorage.getItem('site_lang');
         if (stored && supported.includes(stored)) return stored;
 
-        const nav = (navigator.language || navigator.userLanguage || '').split('-')[0];
-        if (nav && supported.includes(nav)) return nav;
+        const browserLanguages = getBrowserLanguages();
+        for (const locale of browserLanguages) {
+            const code = locale.split(/[-_]/)[0];
+            if (code && supported.includes(code)) return code;
+        }
+
+        for (const locale of browserLanguages) {
+            const country = (locale.split(/[-_]/)[1] || '').toUpperCase();
+            const mapped = mapCountryToLang(country);
+            if (mapped && supported.includes(mapped)) return mapped;
+        }
 
         // Fallback: IP geolocation lookup
         try {
