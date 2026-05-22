@@ -3,4 +3,12 @@
   "browse_marketplace": "Parcourir la marketplace",
   "search_placeholder": "Rechercher des produits, des marques et des boutiques",
   "search_button": "Rechercher"
+  ,"nav_listings": "Annonces"
+  ,"nav_shops": "Boutiques"
+  ,"nav_sell": "Vendre"
+  ,"nav_cart": "Panier"
+  ,"nav_login": "Connexion"
+  ,"nav_create_account": "Créer un compte"
+  ,"label_language": "Langue"
+  ,"label_language_hint": "Choisissez votre langue d'interface préférée."
 }

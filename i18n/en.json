@@ -3,4 +3,12 @@
   "browse_marketplace": "Browse marketplace",
   "search_placeholder": "Search products, brands and shops",
   "search_button": "Search"
+  ,"nav_listings": "Listings"
+  ,"nav_shops": "Shops"
+  ,"nav_sell": "Sell"
+  ,"nav_cart": "Cart"
+  ,"nav_login": "Login"
+  ,"nav_create_account": "Create account"
+  ,"label_language": "Language"
+  ,"label_language_hint": "Choose your preferred interface language."
 }

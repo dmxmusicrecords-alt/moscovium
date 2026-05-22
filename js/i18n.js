@@ -100,10 +100,16 @@
         selector.addEventListener('change', function () {
             const v = selector.value;
             if (!supported.includes(v)) return;
-            applyLang(v).then(() => {
-                // reload page so server can pick up `lang` param if applicable
-                window.location.reload();
-            });
+            // Persist server-side via set-locale endpoint, passing redirect back to current URL
+            try {
+                const redirect = encodeURIComponent(window.location.href);
+                window.location.href = '/set-locale.php?lang=' + encodeURIComponent(v) + '&redirect=' + redirect;
+            } catch (e) {
+                // fallback to client-side apply
+                applyLang(v).then(() => {
+                    window.location.reload();
+                });
+            }
         });
     }
 

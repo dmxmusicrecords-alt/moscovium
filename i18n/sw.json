@@ -3,4 +3,12 @@
   "browse_marketplace": "Vinjari sokoni",
   "search_placeholder": "Tafuta bidhaa, chapa na maduka",
   "search_button": "Tafuta"
+  ,"nav_listings": "Matangazo"
+  ,"nav_shops": "Maduka"
+  ,"nav_sell": "Uza"
+  ,"nav_cart": "Kikapu"
+  ,"nav_login": "Ingia"
+  ,"nav_create_account": "Jisajili"
+  ,"label_language": "Lugha"
+  ,"label_language_hint": "Chagua lugha unayopendelea kwa kiolesura."
 }
